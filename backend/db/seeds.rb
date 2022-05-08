@@ -46,4 +46,4 @@ create_table "items", id: :serial, force: :cascade do |t|
   end
   '''
 
-  users = User.create([{email: "email1@example.com", username: "user1", bio: "placeholder bio for user 1"}])
+  users = User.create([{email: "email1@example.com", username: "user1", bio: "placeholder bio for user 1", password: "12345678"}])
