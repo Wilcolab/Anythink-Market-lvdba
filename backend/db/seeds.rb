@@ -22,7 +22,8 @@ create_table "items", id: :serial, force: :cascade do |t|
   '''
 
   items_to_load = Item.create([{title: "item1", slug: "item-1", description: "This is the description of the item", image: "", user_id: "1"}])
-```
+
+'''
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -43,6 +44,6 @@ create_table "items", id: :serial, force: :cascade do |t|
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
-  ```
+  '''
 
-  users = Users.create([{email: "email1@example.com", username: "user1", bio: "placeholder bio for user 1"}])
+  users = User.create([{email: "email1@example.com", username: "user1", bio: "placeholder bio for user 1"}])
