@@ -46,4 +46,9 @@ create_table "items", id: :serial, force: :cascade do |t|
   end
   '''
 
-  users = User.create([{email: "email1@example.com", username: "user1", bio: "placeholder bio for user 1", password: "12345678"}])
+  users = User.create([{email: "email1@example.com", username: "user0", bio: "placeholder bio for user 1", password: "12345678"}])
+
+  usersLoop = (1..100).each do |i|
+    User.create(email: "email_%i@example.com" % i, username: "user%i"%i, bio: "placeholder bio for user%i" %i, password: "123456789" )
+  end
+
