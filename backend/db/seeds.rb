@@ -10,7 +10,7 @@ user_fields = ["email", "encrypted_password", "username"]
 item_fields = ["title", "description", "user_id"]
 comment_fields = ["body", "user_id", "item_id"]
 
-(1...100).each do |i|
+(1..100).each do |i|
     user = User.create(
         "email": "user#{i}@address.com",
         "username": "user#{i}",
