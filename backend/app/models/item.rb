@@ -17,4 +17,12 @@ class Item < ApplicationRecord
   before_validation do
     self.slug ||= "#{title.to_s.parameterize}-#{rand(36**6).to_s(36)}"
   end
+
+  def image
+    if (@image.nil? or @image == "") 
+      return "placeholder.png"
+    end
+    return @image
+  end
+
 end
