@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+  attr_writer :image
 
   scope :sellered_by, ->(username) { where(user: User.where(username: username)) }
   scope :favorited_by, ->(username) { joins(:favorites).where(favorites: { user: User.where(username: username) }) }
@@ -16,6 +17,10 @@ class Item < ApplicationRecord
 
   before_validation do
     self.slug ||= "#{title.to_s.parameterize}-#{rand(36**6).to_s(36)}"
+  end
+
+  def image
+    @image||"placeholder.png"
   end
 
 end
